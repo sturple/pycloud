@@ -63,7 +63,7 @@ class PyCloud(object):
     @RequiredParameterCheck(('path', 'folderid'))
     def listfolder(self, **kwargs):
         return self._do_request('listfolder', **kwargs)
-    
+
     @RequiredParameterCheck(('path', 'folderid'))
     def renamefolder(self):
         return self._do_request('renamefolder', **kwargs)
@@ -95,8 +95,13 @@ class PyCloud(object):
     def uploadprogress(self, **kwargs):
         return self._do_request('uploadprogress', **kwargs)
 
+    @RequiredParameterCheck(('fileid',))
+    def getfilelink(self, **kwargs):
+        return self._do_request('getfilelink', **kwargs)
+
+    @RequiredParameterCheck(('url',))
     def downloadfile(self, **kwargs):
-        pass
+        return self._do_request('downloadfile', **kwargs)
 
     def copyfile(self, **kwargs):
         pass
